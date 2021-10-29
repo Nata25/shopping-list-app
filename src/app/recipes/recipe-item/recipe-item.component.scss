@@ -1,0 +1,11 @@
+.recipe {
+  display: flex;
+
+  &-image {
+    max-height: 150px;
+  }
+
+  &-content {
+    padding-right: 20px;
+  }
+}
