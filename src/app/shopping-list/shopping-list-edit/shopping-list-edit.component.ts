@@ -15,7 +15,7 @@ export class ShoppingListEditComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   addIngredient (): void {
     if (this.nameInput && this.nameInput.nativeElement.value
         && this.amountInput && this.amountInput.nativeElement.value) {
