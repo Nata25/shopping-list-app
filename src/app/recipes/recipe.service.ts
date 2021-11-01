@@ -1,6 +1,9 @@
+import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
 
 export class RecipeService {
+	recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
+
 	private recipes: Recipe[]	= [
 		new Recipe('Mediterranian Chopped salad',
     'The great thing about chopped salads is that you can pretty much chop whatever vegetables you want and throw them all together. Since this is a Mediterranean chopped salad, I’m leaning more towards ingredients typical in Mediterranean recipes.',
