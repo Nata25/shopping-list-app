@@ -21,14 +21,21 @@
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li
-					(click)="toShoppingList()"
-					class="ingredient"
-				>
-					Add to shopping list
+				<li class="ingredient">
+					<a (click)="toShoppingList($event)">
+						Add to shopping list
+					</a>
 				</li>
-				<li class="ingredient">Edit recipe</li>
-				<li class="ingredient">Delete recipe</li>
+				<li class="ingredient">
+					<a routerLink="edit">
+						Edit recipe
+					</a>
+				</li>
+				<li class="ingredient">
+					<a>
+						Delete recipe
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

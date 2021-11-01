@@ -4,6 +4,7 @@ import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.
 import { RecipeDetailsFallbackComponent } from './recipes/recipe-details-fallback/recipe-details-fallback.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const routes: Routes = [
   {
@@ -19,9 +20,17 @@ const routes: Routes = [
         component: RecipeDetailsFallbackComponent
       },
       {
+        path: 'new',
+        component: RecipeEditComponent
+      },
+      {
         path: ':id',
         component: RecipeDetailsComponent
       },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent
+      }
     ]
   },
   {

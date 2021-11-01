@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'restaurant';
-  mode: string = 'recipes';
-
-  modeChanged(mode: string) {
-    this.mode = mode;
-  }
 }

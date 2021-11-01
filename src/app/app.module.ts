@@ -12,6 +12,7 @@ import { RecipesListComponent } from './recipes/recipes-list/recipes-list.compon
 import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 import { RecipeDetailsFallbackComponent } from './recipes/recipe-details-fallback/recipe-details-fallback.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -27,7 +28,8 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     RecipeDetailsComponent,
     RecipesComponent,
     DropdownDirective,
-    RecipeDetailsFallbackComponent
+    RecipeDetailsFallbackComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Recipe } from '../recipe.model';
 import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { RecipeService } from '../recipe.service';
@@ -18,23 +17,17 @@ export class RecipeDetailsComponent implements OnInit {
     private _route: ActivatedRoute
   ) { }
 
-  subscription: Subscription;
   recipe: Recipe;
 
   ngOnInit(): void {
-    this.subscription = this._route.params
+    this._route.params
       .subscribe((params: Params) => {
         this.recipe = this._recipeService.getRecipeById(params.id);
       });
   }
 
-  toShoppingList (): void {
-    console.log('toShoppingList')
+  toShoppingList (event: MouseEvent): void {
+    event.preventDefault();
     this._shoppingListService.addIngredients(this.recipe.ingredients);
   }
-
-  ngOnDestroy () {
-    this.subscription.unsubscribe();
-  }
-
 }
