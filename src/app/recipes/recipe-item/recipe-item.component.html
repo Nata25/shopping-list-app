@@ -1,4 +1,8 @@
-<a class="list-group-item clearfix recipe" (click)="onRecipeSelected()">
+<a
+	[routerLink]="recipe.id"
+	routerLinkActive="active"
+	class="list-group-item clearfix recipe"
+>
 	<div class="recipe-content">
 		<h4 class="list-group-item-heading">
 			{{recipe.name}}

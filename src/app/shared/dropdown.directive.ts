@@ -8,7 +8,7 @@ export class DropdownDirective implements OnInit {
 		private elementRef: ElementRef
 	) {}
 
-	@HostBinding('class') className: String = '';
+	@HostBinding('class') className: string = '';
 
 	@HostListener('document:click', ['$event']) click(event: Event) {
 		const clickInside = this.elementRef.nativeElement.contains(event.target)

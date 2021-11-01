@@ -3,12 +3,6 @@
 		<app-recipes-list></app-recipes-list>
 	</div>
 	<div class="col-md-7">
-		<app-recipe-details
-			*ngIf="selectedRecipe; else fallback"
-			[recipe]="selectedRecipe"
-		></app-recipe-details>
-		<ng-template #fallback>
-			<p class="recipe-detail-fallback">No recipes selected.</p>
-		</ng-template>
+		<router-outlet></router-outlet>
 	</div>
 </div>
