@@ -2,7 +2,11 @@
   display: flex;
 
   &-image {
+    width: 150px;
     max-height: 150px;
+    flex: 0 0 150px;
+    object-fit: cover;
+    object-position: center;
   }
 
   &-content {
