@@ -10,21 +10,19 @@
 		<div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
 
 			<ul class="nav navbar-nav">
-				<li>
-					<a href="#" (click)="switchMode('recipes')">Recipe</a>
+				<li routerLinkActive="active">
+					<a routerLink="/recipes">Recipe</a>
 				</li>
-				<li>
-					<a href="#" (click)="switchMode('shopping')">Shopping list</a>
+				<li routerLinkActive="active">
+					<a routerLink="/shopping-list">Shopping list</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="droopdown" app-dropdown>
 					<a href="#" class="dropdown-toggle">Manage <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Save data</a>
-							<a href="#">Fetch data</a>
-						</li>
+						<li class="header-dropdown-links">Save data</li>
+						<li class="header-dropdown-links">Fetch data</li>
 					</ul>
 				</li>
 			</ul>
