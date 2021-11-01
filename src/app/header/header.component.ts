@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Output } from "@angular/core";
+import { EventEmitter } from "@angular/core";
 
 @Component({
 	selector: 'app-header',
@@ -7,5 +8,9 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent {
 	collapsed: Boolean = false;
+	@Output() modeChanged = new EventEmitter<string>();
 
+	switchMode (mode: string) {
+		this.modeChanged.emit(mode);
+	}
 }
