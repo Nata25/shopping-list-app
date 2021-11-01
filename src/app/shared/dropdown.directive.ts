@@ -1,19 +1,18 @@
-import { Directive, ElementRef, OnInit, Renderer2, HostListener, HostBinding } from "@angular/core";
+import { Directive, ElementRef, OnInit, HostListener, HostBinding } from "@angular/core";
 
 @Directive({
 	selector: '[app-dropdown]'
 })
 export class DropdownDirective implements OnInit {
 	constructor(
-		private elementRef: ElementRef,
-		private renderer: Renderer2
+		private elementRef: ElementRef
 	) {}
 
 	@HostBinding('class') className: String = '';
 
-	@HostListener('click') click() {
-		// this.renderer.addClass(this.elementRef.nativeElement, 'open');
-		this.className = this.className ? '' : 'open';
+	@HostListener('document:click', ['$event']) click(event: Event) {
+		const clickInside = this.elementRef.nativeElement.contains(event.target)
+		this.className = !this.className && clickInside ? 'open' : ''
 	}
 
 	ngOnInit () {
