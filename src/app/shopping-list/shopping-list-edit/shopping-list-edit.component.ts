@@ -19,12 +19,10 @@ export class ShoppingListEditComponent implements OnInit {
 
   addIngredient (form: NgForm): void {
     const { value } = form;
-    if (value.name && value.amount) {
-      const ingredient: Ingredient = {
-        name: value.name,
-        amount: +value.amount
-      }
-      this._shoppingListService.addIngredient(ingredient)
+    const ingredient: Ingredient = {
+      name: value.name,
+      amount: +value.amount
     }
+    this._shoppingListService.addIngredient(ingredient);
   }
 }
