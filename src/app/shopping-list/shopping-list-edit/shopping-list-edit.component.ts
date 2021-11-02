@@ -20,7 +20,9 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
   // @ViewChild('nameInput') nameInput: ElementRef;
   // @ViewChild('amountInput') amountInput: ElementRef;
   
-  constructor(private _shoppingListService: ShoppingListService) { }
+  constructor(
+    private _shoppingListService: ShoppingListService
+  ) { }
 
   ngOnInit(): void {
     this.sub = this._shoppingListService.listItemEdited.subscribe((id: string) => {
