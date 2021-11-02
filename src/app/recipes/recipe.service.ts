@@ -1,8 +1,11 @@
 import { Ingredient } from "../shared/ingredient.model";
 import { Recipe } from "./recipe.model";
 import { v4 as uuid} from 'uuid';
+import { Subject } from "rxjs";
 
 export class RecipeService {
+	recipesChanged = new Subject<Recipe[]>();
+
 	private recipes: Recipe[]	= [
 		new Recipe(
 			uuid(),
@@ -31,5 +34,19 @@ export class RecipeService {
 
 	getRecipeById (id: string) {
 		return this.recipes.find(r => r.id === id);
+	}
+
+	addRecipe (recipe: Recipe) {
+		this.recipes.push(recipe);
+		this.recipesChanged.next([...this.recipes]);
+	}
+
+	updateRecipe (recipe: Recipe) {
+		const updatingRecipe = this.recipes.find(r => r.id === recipe.id);
+		if (updatingRecipe) {
+			const ind = this.recipes.indexOf(updatingRecipe);
+			this.recipes[ind] = recipe;
+			this.recipesChanged.next([...this.recipes]);
+		}
 	}
 }
