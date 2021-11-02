@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { v4 as uuid} from 'uuid';
 
 import { RecipeService } from 'src/app/recipes/recipe.service';
 import { Recipe } from '../recipe.model';
@@ -31,6 +30,10 @@ export class RecipeEditComponent implements OnInit {
 
   get controls () {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  }
+
+  private getId () {
+    return this._recipeService.getRecipes.length;
   }
 
   private initForm () {
@@ -72,12 +75,12 @@ export class RecipeEditComponent implements OnInit {
     let newRecipe: Recipe;
     if (this.mode === 'edit') {
       newRecipe = new Recipe(
-        this.id, name, description, imagePath, ingredients
+        +this.id, name, description, imagePath, ingredients
       )
       this._recipeService.updateRecipe(newRecipe);
     } else {
       newRecipe = new Recipe(
-        uuid(), name, description, imagePath, ingredients
+        this.getId(), name, description, imagePath, ingredients
       )
       this._recipeService.addRecipe(newRecipe);
     }
