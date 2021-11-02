@@ -43,16 +43,20 @@ export class ShoppingListService {
 		let updatedIndex: number;
 		if (updated) {
 			updatedIndex = this.ingredients.indexOf(updated);
-			console.log('updating...', updatedIndex)
 			updated = {
 				...ing,
 				name: ing.name,
 				amount: ing.amount
 			}
-			console.log('updated', updated)
 			this.ingredients[updatedIndex] = updated;
-			console.log('updated list:', this.ingredients);
 			this.ingredientsUpdated.next([...this.ingredients]);
 		}
+	}
+
+	deleteIngredient (id: string) {
+		const ingredientToDelete = this.getIngredientById(id);
+		const ind = this.ingredients.indexOf(ingredientToDelete);
+		this.ingredients.splice(ind, 1);
+		this.ingredientsUpdated.next([...this.ingredients]);
 	}
 }
