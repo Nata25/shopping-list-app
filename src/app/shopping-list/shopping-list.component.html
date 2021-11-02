@@ -8,6 +8,7 @@
 				*ngFor="let ingredient of ingredients"
 				class="list-group-item"
 				style="cursor:pointer;"
+				(click)="onSelected(ingredient.id)"
 			>
 				{{ ingredient.name }} ({{ ingredient.amount }})
 			</li>
