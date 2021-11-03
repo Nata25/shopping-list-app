@@ -100,8 +100,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   goBack () {
-    const path = this.id ? ['recipes', this.id] : ['recipes']; 
-    this._router.navigate(path);
+    this._router.navigate(['../'], { relativeTo: this._route });
   }
 
   addIngredient () {
@@ -117,7 +116,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   deleteIngredient (ind: number) {
-    console.log('deleteIngredient');
     this.ingredientsArray.removeAt(ind);
   }
 }
