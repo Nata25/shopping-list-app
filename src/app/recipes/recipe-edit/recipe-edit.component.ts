@@ -28,8 +28,8 @@ export class RecipeEditComponent implements OnInit {
     this.initForm();
   }
 
-  get controls () {
-    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  get ingredientsArray () {
+    return this.recipeForm.get('ingredients') as FormArray;
   }
 
   private getId () {
@@ -87,7 +87,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   addIngredient () {
-    this.controls.push(
+    this.ingredientsArray.push(
       new FormGroup({
         name: new FormControl(null, Validators.required),
         amount: new FormControl(null, [
