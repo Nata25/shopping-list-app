@@ -32,6 +32,10 @@ export class RecipeService {
 		return [...this.recipes];
 	}
 
+	getNextId () {
+		return this.recipes.length;
+	}
+
 	getRecipeById (id: string) {
 		return this.recipes.find(r => r.id === +id);
 	}

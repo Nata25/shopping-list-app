@@ -34,10 +34,6 @@ export class RecipeEditComponent implements OnInit {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
-  private getId () {
-    return this._recipeService.getRecipes.length;
-  }
-
   private populateIngredients (recipeToEdit: Recipe): FormArray {
     const ingredients = this._builder.array([]);
     for (let ing of recipeToEdit.ingredients) {
@@ -92,7 +88,11 @@ export class RecipeEditComponent implements OnInit {
       this._recipeService.updateRecipe(newRecipe);
     } else {
       newRecipe = new Recipe(
-        this.getId(), name, description, imagePath, ingredients
+        this._recipeService.getNextId(),
+        name,
+        description,
+        imagePath,
+        ingredients
       )
       this._recipeService.addRecipe(newRecipe);
     }
