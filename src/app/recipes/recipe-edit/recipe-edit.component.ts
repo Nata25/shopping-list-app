@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { RecipeService } from 'src/app/recipes/recipe.service';
@@ -17,6 +17,7 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
+    private _router: Router,
     private _recipeService: RecipeService,
     private _builder: FormBuilder
   ) { }
@@ -95,6 +96,12 @@ export class RecipeEditComponent implements OnInit {
       )
       this._recipeService.addRecipe(newRecipe);
     }
+    this.goBack();
+  }
+
+  goBack () {
+    const path = this.id ? ['recipes', this.id] : ['recipes']; 
+    this._router.navigate(path);
   }
 
   addIngredient () {
@@ -107,5 +114,10 @@ export class RecipeEditComponent implements OnInit {
         ]]
       })
     )
+  }
+
+  deleteIngredient (ind: number) {
+    console.log('deleteIngredient');
+    this.ingredientsArray.removeAt(ind);
   }
 }

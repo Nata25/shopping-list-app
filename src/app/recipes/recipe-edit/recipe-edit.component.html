@@ -10,7 +10,13 @@
 					>
 						Save
 					</button>
-					<button type="button" class="btn btn-danger">Cancel</button>
+					<button
+						type="button"
+						class="btn btn-danger"
+						(click)="goBack()"
+					>
+						Cancel
+					</button>
 				</div>
 			</div>
 			<div class="row">
@@ -76,7 +82,8 @@
 						</div>
 						<div class="col-xs-2">
 							<button
-								class='btn btn-danger'
+							class='btn btn-danger'
+							(click)="deleteIngredient(i)"
 							>
 								x
 							</button>
