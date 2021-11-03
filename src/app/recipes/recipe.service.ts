@@ -42,10 +42,19 @@ export class RecipeService {
 	}
 
 	updateRecipe (recipe: Recipe) {
-		const updatingRecipe = this.recipes.find(r => r.id === recipe.id);
-		if (updatingRecipe) {
-			const ind = this.recipes.indexOf(updatingRecipe);
+		const recipeToUpdate = this.getRecipeById(recipe.id.toString());
+		if (recipeToUpdate) {
+			const ind = this.recipes.indexOf(recipeToUpdate);
 			this.recipes[ind] = recipe;
+			this.recipesChanged.next([...this.recipes]);
+		}
+	}
+
+	deleteRecipe (id: string) {
+		const recipeToDelete = this.getRecipeById(id);
+		if (recipeToDelete) {
+			const ind = this.recipes.indexOf(recipeToDelete);
+			this.recipes.splice(ind, 1);
 			this.recipesChanged.next([...this.recipes]);
 		}
 	}
