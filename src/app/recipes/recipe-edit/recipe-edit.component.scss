@@ -16,3 +16,8 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+.recipe-preview {
+  width: 300px;
+  margin-bottom: 10px;
+}
