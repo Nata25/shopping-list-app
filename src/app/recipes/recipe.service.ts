@@ -11,7 +11,7 @@ export class RecipeService {
 			0,
 			'Mediterranian Chopped salad',
 			'The great thing about chopped salads is that you can pretty much chop whatever vegetables you want and throw them all together.',
-			'https://feelgoodfoodie.net/wp-content/uploads/2019/02/Mediterranean-Chopped-Salad-7.jpg',
+			'https://i2.wp.com/www.primaverakitchen.com/wp-content/uploads/2017/06/Easy-Mediterranean-Chopped-Salad-3.jpg',
 			[
 				new Ingredient(uuid(), 'Corn', 1),
 				new Ingredient(uuid(), 'Tomatoes', 1),
